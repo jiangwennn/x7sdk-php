@@ -1,4 +1,3 @@
-
 # 小7手游接入PHP SDK
 
 
@@ -13,5 +12,5 @@
 
 #### 直接下载release
 
-​	[点击打开release页面]([Releases · jiangwennn/x7sdk-php (github.com)](https://github.com/jiangwennn/x7sdk-php/releases))
+​	[Releases · jiangwennn/x7sdk-php (github.com)](https://github.com/jiangwennn/x7sdk-php/releases)
 
