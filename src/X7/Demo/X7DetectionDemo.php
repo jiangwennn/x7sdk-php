@@ -26,9 +26,9 @@ class X7DetectionDemo
      */
     protected $client;
 
-    protected $requestUrl = "http://api.x7sy.com/x7Detection/gateway";
+    protected $requestUrl = "https://api.x7sy.com/x7Detection/gateway";
 
-    protected $testRequestUrl = "http://api.x7sy.com/x7DetectionHelper/gateway";
+    protected $testRequestUrl = "https://api.x7sy.com/x7DetectionHelper/gateway";
 
     public function __construct(Client $client)
     {
