@@ -56,8 +56,10 @@ class DetectResult extends Model
         foreach ($properties as $property) {
             if (!isset($paramArr[$property->name]) && !in_array($property->name, static::$optionalFields)) {
                 throw new RuntimeException("字段 {$property->name} 缺失 in paramArr");
-            } elseif ($property->name == "sensitiveWords" && !is_array($paramArr[$property->name])) {
-                throw new RuntimeException("字段 {$property->name} 类型有误 in paramArr");
+            } elseif ($property->name == "sensitiveWords") {
+                if (!is_array($paramArr[$property->name])) {
+                    throw new RuntimeException("字段 {$property->name} 类型有误 in paramArr");
+                }
             } elseif (!empty($paramArr[$property->name]) && !is_scalar($paramArr[$property->name])) {
                 throw new RuntimeException("字段 {$property->name} 类型有误 in paramArr");
             }
