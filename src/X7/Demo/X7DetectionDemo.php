@@ -70,7 +70,7 @@ class X7DetectionDemo
             if ($e instanceof ServerResponseException) {
                 echo $e->getContext();
             }
-            // echo $e->getMessage();
+            echo $e->getMessage();
         }
     }
 

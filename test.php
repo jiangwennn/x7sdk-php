@@ -5,6 +5,7 @@ require_once './vendor/autoload.php';
 use X7\Client;
 use X7\Constant\GameType;
 use X7\Constant\OsType;
+use X7\Demo\IpWhiteListQueryDemo;
 use X7\Demo\RoleQueryDemo;
 use X7\Demo\X7DetectionDemo;
 use X7\Demo\X7mallDemo;
@@ -28,9 +29,14 @@ $demo->sendMallEntryRequest();
 
 // 小7检测
 // $demo = new X7DetectionDemo($client);
-// $demo->sendMessageDetectReportRequest();
+// $demo->sendMessageDetectRequest();
 
 
 // 角色查询V2
 // $demo = new RoleQueryDemo($client);
 // $demo->incomingRequest();
+
+
+// IP 白名单查询
+// $demo = new IpWhiteListQueryDemo($client);
+// $demo->sendIpWhiteListQueryRequest();
