@@ -2,6 +2,7 @@
 
 namespace X7\Utils;
 
+use DateTimeImmutable;
 
 /**
  * 日期助手
@@ -16,7 +17,12 @@ class DateTimeUtil
 
     public static function getTimeStr($time = null)
     {
-        return date(self::getDateTimeFormat(), !empty($time) ? $time : time());
+        if (!empty($time)) {
+            $timeStr = date(self::getDateTimeFormat(), $time);
+        } else {
+            $timeStr = (new DateTimeImmutable())->format("Y-m-d\TH:i:s.uO");
+        }
+        return $timeStr;
     }
 
     public static function isValidTimeStr($timeStr)
