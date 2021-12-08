@@ -57,14 +57,15 @@ class CommonResponse implements ResponseInterface
      *
      * @param ParamHandlerInterface $bizResp
      * @return static
+     * @throws RuntimeException
      */
     public function validate(ParamHandlerInterface $bizResp)
     {
         $this->setRespCode($bizResp->getInputValue('respCode'))
             ->setRespMsg($bizResp->getInputValue('respMsg'));
 
-        if ($this->respCode == ResponseCode::SUCCESS && method_exists($this, $method = "validateBizResp")) {
-            call_user_func(array($this, $method), $bizResp);
+        if ($this->respCode == ResponseCode::SUCCESS && $this instanceof BizRespValidatorInterface) {
+            $this->validateBizResp($bizResp);
         }
         return $this;
     }
