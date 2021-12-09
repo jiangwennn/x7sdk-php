@@ -169,7 +169,7 @@ class Client
         }
 
         $outputArr = Json::decode($output);
-        if (is_null($outputArr) || json_last_error() !== JSON_ERROR_NONE) {
+        if (!is_array($outputArr) || json_last_error() !== JSON_ERROR_NONE) {
             throw new ServerResponseException("请求响应数据格式错误", $output);
         }
 
