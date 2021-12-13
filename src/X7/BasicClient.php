@@ -3,10 +3,13 @@
 namespace X7;
 
 use RuntimeException;
+use X7\Exception\ApiExceptionInterface;
 use X7\Exception\ServerResponseException;
 use X7\Module\Basic\Constant\RequestMethod;
 use X7\Module\Basic\Model\BasicRequest;
 use X7\Request\BasicRequestInterface;
+use X7\Request\BasicRequestReceiverInterface;
+use X7\Request\Server\RequestParameterRetrieverInterface;
 use X7\Utils\HttpSend;
 use X7\Utils\Json;
 
@@ -61,6 +64,19 @@ class BasicClient
         return $responseArr;
     }
 
+
+    /**
+     * @param BasicRequestReceiverInterface $request
+     * @param RequestParameterRetrieverInterface $retriever
+     * @return BasicRequestReceiverInterface
+     * @throws ApiExceptionInterface
+     */
+    public function handleRequest(BasicRequestReceiverInterface $request, RequestParameterRetrieverInterface $retriever)
+    {
+        return $request->validate($retriever);
+    }
+
+    
 
 
 }

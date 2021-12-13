@@ -10,7 +10,7 @@ use X7\Response\BizRespValidatorInterface;
 class CheckGameOrderResponse extends BasicResponse implements BizRespValidatorInterface
 {
     /**
-     * @var GameOrder[]
+     * @var GameOrder
      */
     public $game_order_data = [];
 
@@ -19,9 +19,7 @@ class CheckGameOrderResponse extends BasicResponse implements BizRespValidatorIn
     {
         $gameOrderData = $bizResp->getInputValue("game_order_data");
         if (!empty($gameOrderData)) {
-            foreach ($gameOrderData as $gameOrder) {
-                $this->game_order_data[] = GameOrder::make($gameOrder);
-            }
+            $this->game_order_data = GameOrder::make($gameOrderData);
         }
         return $this;
     }
