@@ -23,6 +23,16 @@ class ArrayParamHandler implements ParamHandlerInterface,RequestParameterRetriev
         return is_callable($formatHandler) ? call_user_func($formatHandler, $value) : $value; 
     }
 
+    public function set($key, $value = null)
+    {
+        if (is_array($key)) {
+            $this->paramArr = array_merge($this->paramArr, $key);
+        } else {
+            $this->paramArr[$key] = $value;
+        }
+        return $this;
+    }
+
     public function has($key)
     {
         return isset($this->paramArr[$key]);

@@ -19,9 +19,7 @@ trait BatchAssign
         $reflectionClass = new ReflectionClass($instance);
         $reflectionClass->getProperties();
         foreach ($data as $key => $value) {
-            if ($reflectionClass->hasProperty($key)) {
-                $instance->{$key} = $value;
-            }
+            $instance->{$key} = $value;
         }
         return $instance;
     }

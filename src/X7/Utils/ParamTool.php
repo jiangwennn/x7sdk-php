@@ -5,6 +5,30 @@ namespace X7\Utils;
 class ParamTool
 {
 
+    public static function buildQueryString($queryArr, $unsetEmpty = true, $urlEncode = false)
+    {
+        if (empty($queryArr)) {
+            return "";
+        }
+
+        if ($unsetEmpty) {
+            $queryString = http_build_query($queryArr);
+            if (!$urlEncode) {
+                $queryString = urldecode($queryString);
+            }
+        } else {
+            $queryStringArr = array();
+            foreach ($queryArr as $key => $value) {
+                $queryStringArr[$key] = "{$key}={$value}";
+            }
+            $queryString = implode("&", $queryStringArr);
+            if ($urlEncode) {
+                $queryString = urlencode($queryString);
+            }
+        }
+        return $queryString;
+    }
+
 
     public static function isNumber($num)
     {
