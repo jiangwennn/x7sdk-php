@@ -60,7 +60,7 @@ class VerifiedResponse
     {
         $this->bizResp = $this->validateBizResp($responseBase->bizResp);
         $this->apiMethod = $responseBase->apiMethod;
-        $this->respTime = $responseBase->reqTime;
+        $this->respTime = $responseBase->respTime;
         $this->appkey = $responseBase->appkey;
         $this->signature = $responseBase->signature;
         $this->gameType = $responseBase->gameType;
